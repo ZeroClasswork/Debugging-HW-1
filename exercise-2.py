@@ -22,8 +22,6 @@ def contains_3_consecutive(list_of_nums):
         if (list_of_nums[i+1] == list_of_nums[i] + 1 and
             list_of_nums[i+2] == list_of_nums[i] + 2):
             return True
-        else:
-            return False
 
     return False
 
@@ -34,3 +32,26 @@ if __name__ == '__main__':
 
     answer2 = contains_3_consecutive([4, 1, 2, 3])
     print(answer2) # should print True
+
+# PART 1:
+# The expected output for this problem is False; True but it outputs False; False.
+# The problem is at line 25, the first else statement, because it causes the output 
+# to be False if the first three aren't consecutive instead of checking each set of 
+# 3 numbers.
+
+# PART 2:
+# "The function should return two if the list contains 3 consecutive numbers next 
+# to each other."
+# 
+# "We have to loop through, using indeces and only to the third to last value, so 
+# the for loop is setup correctly."
+# 
+# "The if statement compares the number at the index to the next two numbers and 
+# returns True if they form the consecutive chain we're looking for - so that 
+# checks out."
+# 
+# "Ah, but this 'else' shouldn't be here. False is only confirmed once the True 
+# is ruled out for *each* triad."
+
+# THE FIX:
+# Got rid of the first else statement.
